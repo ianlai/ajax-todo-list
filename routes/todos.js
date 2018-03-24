@@ -1,7 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 var db = require('../models');
-
+var helpers = require('../helpers/todos');
 
 /* 5 APIs 
    - GET     /api/todos             //List all todos 
@@ -11,62 +11,18 @@ var db = require('../models');
    - DELETE  /api/todos/:todoId     //Delete a todo
 */
 
-router.get('/', function(req, res){
-   db.Todo.find()
-   .then(function(todos){
-       res.json(todos);
-   })
-   .catch(function(err){
-       res.send(err);
-   });
-});
+//router.get('/', );
+//router.post('/', );
 
-router.post('/', function(req, res){
-    //console.log(req.body); //need body parser to read it 
-    db.Todo.create(req.body)
-    .then(function(newTodo){
-        res.status(201).json(newTodo);  //newly created todo item 
-    })
-    .catch(function(err){
-        res.send(err);
-    });
-});
+/* Combine the 2 routes with the same route together */
+router.route('/')
+.get(helpers.getTodos)
+.post(helpers.createTodo);
 
-router.get('/:todoId', function(req, res){
-    db.Todo.findById(req.params.todoId)
-    .then(function(foundTodo){
-       res.json(foundTodo); 
-    })
-    .catch(function(err){
-        res.send(err);
-    });
-});
-
-router.put('/:todoId', function(req, res){
-    db.Todo.findOneAndUpdate({_id: req.params.todoId}, req.body, {new: true})
-    .then(function(updatedTodo){
-        res.json(updatedTodo);
-    })
-    .catch(function(err){
-        res.send(err); 
-    });
-});
-
-router.delete('/:todoId', function(req, res){
-    db.Todo.findById(req.params.todoId)
-    .then(function(foundTodo){
-        db.Todo.remove({_id: req.params.todoId})
-        .then(function(){
-            var removedTodoName = foundTodo.name;
-            res.json({message: "'" + removedTodoName + "' is deleted"});
-        })
-        .catch(function(err){
-            res.send(err); 
-        });
-    })
-    .catch(function(err){
-        res.send(err);
-    });
-});
+/* Combine the 3 routes with the same route together */
+router.route('/:todoId')
+.get(helpers.getTodo)
+.put(helpers.updateTodo)
+.delete(helpers.deleteTodo);
 
 module.exports = router;
