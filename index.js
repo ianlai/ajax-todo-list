@@ -10,12 +10,17 @@ var todoRoute  = require('./routes/todos');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({encoded: true}));
 
+/* static file */
+app.use(express.static(__dirname+'/views'));   //index.html
+app.use(express.static(__dirname+'/public'));  //app.css, app.js
+
 /* route use */
 app.use('/api/todos', todoRoute);
 
 /* main routes */
 app.get("/", function(req,res){
-    res.send("Hello! This is root page! ");
+    //res.send("Hello! This is root page! ");
+    res.sendFile("index.html");
 });
 
 app.get("/test", function(req,res){
