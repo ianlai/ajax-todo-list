@@ -3,6 +3,11 @@
 body {
 	font-family: 'Montserrat', sans-serif;
 	background: #ecf0f1;
+	/*background-image: url('bg-abstract.jpg');*/
+	/*background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%), url('');*/
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
 
 /*****************************HEADER STYLES*****************************/
@@ -11,7 +16,7 @@ header {
 }
 header h1 {
 	font-size: 64px;
-	font-weight: 300;
+	font-weight: 400;
 	margin: 80px 0 25px;
 	color: #2c3e50;
 }
@@ -20,6 +25,7 @@ header h1 span {
 }
 header h2 {
 	color: #bdc3c7;
+	color: rgb(70, 62, 80, 0.4);
 	font-weight:300;
 }
 /*****************************FORM STYLES*****************************/
@@ -38,9 +44,12 @@ header h2 {
 	outline: none;
 	font: 300 28px 'Ubuntu', sans-serif;
 	padding: 20px;
-	color: #34495e;
+	color: #517396;
 }
 
+::placeholder { 
+    color: rgb(44, 62, 80, 0.3);
+}
 /*****************************LIST STYLES*****************************/
 .list {
 	width: 800px;
@@ -52,11 +61,14 @@ header h2 {
 	line-height: 60px;
 	font-size: 20px;
 	padding: 0 20px;
-	color: #34495e;
+	color: rgb(71, 94, 102, 1);
+	
+	font-weight: 400;
 	transition: all .3s ease;
 }
 .task:hover {
-	background: rgba(0, 0, 0, .02);
+	background: rgba(0, 0, 0, .05);
+	transition: all 0.3s;
 	cursor: pointer;
 }
 
@@ -69,7 +81,7 @@ header h2 {
 	color: #bdc3c7;
 }
 
-li span {
+li span{
   float: right;
   color: #c0392b;
   transition: all 0.3s;
@@ -77,5 +89,5 @@ li span {
 }
 
 li span:hover {
-  color: #e74c3c
+  color: #dd5749;
 }
