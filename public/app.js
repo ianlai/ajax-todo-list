@@ -23,7 +23,9 @@ $(document).ready(function(){
         e.stopPropagation();  //with this, li click event will not be triggered 
         deleteTodo($(this).parent());
     })
-    
+    // $( "#sortable" ).sortable({
+    //   revert: true
+    // });
 });
 
 /* append the todo to the list (view) */
@@ -31,7 +33,7 @@ function appendTodo(todo){
     /* todo   : returned object 
      * newTodo: jQuery object
      */
-    var newTodo = $('<li class=task>' + todo.name + '<span>Remove <i class="fas fa-trash-alt"></i></span></li>');
+    var newTodo = $('<li class=task>' + todo.name + '<span><i class="fas fa-trash-alt"></i></span></li>');
     newTodo.data('id', todo._id);
     newTodo.data('completed', todo.completed);
     if(todo.completed){

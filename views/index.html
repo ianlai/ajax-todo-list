@@ -1,10 +1,15 @@
 <head>
+    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css" type="text/css" />
     <link rel="stylesheet" href="app.css" type="text/css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
       crossorigin="anonymous"></script>
 </head>
 <body>
@@ -17,7 +22,7 @@
         <input type="text" id="todoInput" placeholder="input your new todo here..."/>
     </section>
     
-    <ul class="list">
+    <ul class="list" id="sortable">
     </ul>
     
     <script type="text/javascript" src="app.js"></script>
