@@ -3,7 +3,7 @@
 ## Into
 
 - URL: http://ajaxtodolist.herokuapp.com/
-- Type: Client-side rending single page app 
+- Topic: Client-side rendering single page app 
 - Frontend: HTML + CSS + Javascript + jQuery 
 - Backend: Node.js + Express + MongoDB 
 - Deploy: Heroku + mLab
